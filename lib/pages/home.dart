@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
                         padding: EdgeInsets.all(7),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.black)),
+                            border: Border.all(color: Colors.black26)),
                         child: Icon(
                           Icons.shopping_basket,
                           size: 20,
@@ -97,11 +97,134 @@ class _HomeState extends State<Home> {
                     child: CircleAvatar(
                       backgroundImage: AssetImage('assets/images/image1.jpg'),
                     ),
-                  )
+                  ),
                 ],
               )
             ],
-          )
+          ),
+          SizedBox(height: 25),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(20)),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  icon: Icon(Icons.search_outlined),
+                  hintText: 'Search foods, snacks, etc ...'),
+            ),
+          ),
+          SizedBox(height: 25),
+          Container(
+            decoration: BoxDecoration(
+                color: primaryColor, borderRadius: BorderRadius.circular(20)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Ramadhan Sale!',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Free shopping for all merchant',
+                          style: TextStyle(color: Colors.white60, fontSize: 12),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          '60%',
+                          style: TextStyle(
+                              color: Color(0xfffde34b),
+                              fontSize: 50,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Aug 02- Sep 02, 2022',
+                          style: TextStyle(color: Colors.white60, fontSize: 13),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                    child: Image(
+                      height: 170,
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/image2.jpg'),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 249, 227, 215),
+                    borderRadius: BorderRadius.circular(15)),
+                child: Icon(
+                  color: primaryColor,
+                  Icons.sell,
+                  size: 35,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 211, 235, 253),
+                    borderRadius: BorderRadius.circular(15)),
+                child: Icon(
+                  color: Colors.blue[400],
+                  Icons.icecream,
+                  size: 35,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 252, 252, 190),
+                    borderRadius: BorderRadius.circular(15)),
+                child: Icon(
+                  color: Color.fromARGB(255, 253, 195, 3),
+                  Icons.local_pizza,
+                  size: 35,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                    color: Colors.green[100],
+                    borderRadius: BorderRadius.circular(15)),
+                child: Icon(
+                  color: Colors.green,
+                  Icons.spa,
+                  size: 35,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
         ],
       ),
     );
