@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:fooddelivery/components.dart';
 import 'package:fooddelivery/constants.dart';
 
 class Home extends StatefulWidget {
@@ -178,50 +179,17 @@ class _HomeState extends State<Home> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 249, 227, 215),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Icon(
-                  color: primaryColor,
-                  Icons.sell,
-                  size: 35,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 211, 235, 253),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Icon(
-                  color: Colors.blue[400],
-                  Icons.icecream,
-                  size: 35,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 252, 252, 190),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Icon(
-                  color: Color.fromARGB(255, 253, 195, 3),
+              foodTypeBox(primaryColor, Color.fromARGB(255, 249, 227, 215),
+                  Icons.sell, "Voucher"),
+              foodTypeBox(Colors.blue[400]!, Color.fromARGB(255, 211, 235, 253),
+                  Icons.icecream, "Dessert"),
+              foodTypeBox(
+                  Color.fromARGB(255, 253, 195, 3),
+                  Color.fromARGB(255, 252, 252, 190),
                   Icons.local_pizza,
-                  size: 35,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: Colors.green[100],
-                    borderRadius: BorderRadius.circular(15)),
-                child: Icon(
-                  color: Colors.green,
-                  Icons.spa,
-                  size: 35,
-                ),
-              ),
+                  "Fast food"),
+              foodTypeBox(Colors.green, Colors.green[100]!, Icons.icecream,
+                  "Diet food"),
             ],
           ),
           SizedBox(height: 10),
