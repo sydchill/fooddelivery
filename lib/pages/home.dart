@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:fooddelivery/components.dart';
 import 'package:fooddelivery/constants.dart';
+import 'package:fooddelivery/data.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -40,26 +41,28 @@ class _HomeState extends State<Home> {
                   Container(
                     constraints: BoxConstraints(maxHeight: 45, maxWidth: 240),
                     child: DropdownButtonHideUnderline(
-                        child: DropdownButton<String>(
-                      isExpanded: true,
-                      value: _selectedLocation,
-                      items: locations.map(
-                        (String items) {
-                          return DropdownMenuItem(
-                              value: items,
-                              child: Text(
-                                items,
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ));
+                      child: DropdownButton<String>(
+                        isExpanded: true,
+                        value: _selectedLocation,
+                        items: locations.map(
+                          (String items) {
+                            return DropdownMenuItem(
+                                value: items,
+                                child: Text(
+                                  items,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ));
+                          },
+                        ).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            _selectedLocation = value;
+                          });
                         },
-                      ).toList(),
-                      onChanged: (String? value) {
-                        setState(() {
-                          _selectedLocation = value;
-                        });
-                      },
-                    )),
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -188,11 +191,41 @@ class _HomeState extends State<Home> {
                   Color.fromARGB(255, 252, 252, 190),
                   Icons.local_pizza,
                   "Fast food"),
-              foodTypeBox(Colors.green, Colors.green[100]!, Icons.icecream,
-                  "Diet food"),
+              foodTypeBox(
+                  Colors.green, Colors.green[100]!, Icons.spa, "Diet food"),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 40),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Hottest discound",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "See all",
+                  style: TextStyle(color: Colors.orange[400]),
+                ),
+              )
+            ],
+          ),
+          SingleChildScrollView(
+            physics: AlwaysScrollableScrollPhysics(),
+            child: Column(
+              children: List.generate(
+                restuarantList.length,
+                (i) {
+                  return restaurants(
+                    restuarantList[i]["distance"],
+                    restuarantList[i]["name"],
+                    restuarantList[i]["rating"],
+                    restuarantList[i]["image"],
+                  );
+                },
+              ),
+            ),
+          )
         ],
       ),
     );
